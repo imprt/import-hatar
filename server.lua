@@ -13,8 +13,8 @@ end)
 lib.callback.register('ls:checkjob', function()
     local xPlayer = ESX.GetPlayerFromId(source)
     if xPlayer then
-        for v = 1, #Config.Jobs do
-            if xPlayer.job.name == Config.Jobs[v] then
+        for _, job in ipairs(Config.Jobs) do
+            if xPlayer.job.name == job then
                 return true
             end
         end
